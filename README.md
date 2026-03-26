@@ -1,101 +1,78 @@
 # VISA-INFO-CHATBOT
 Chatbot application for providing visa information, guidance, and support to users seeking information about different visa types, requirements, and processes.
-## Features
+**Features**
 
-- **User Authentication**: Secure registration and login with JWT tokens
-- **Chat System**: Interactive chat sessions for visa inquiries
-- **Chat History**: Persistent storage of chat conversations
-- **Document Upload**: Users can upload documents related to visa applications
-- **Visa Information**: Comprehensive database of visa types and requirements
-- **Application Forms**: Support for visa application forms
-- **RESTful API**: Well-documented API endpoints
+Here are some of the core features currently implemented:
+
+User Authentication
+Secure user registration and login using JWT authentication
+Chat System
+Interactive chat interface where users can ask visa-related questions
+Chat History
+Saves previous conversations so users can revisit them anytime
+Document Upload
+Allows users to upload and manage documents related to visa applications
+Visa Information
+Structured data on visa types, requirements, and processing details
+Application Support
+Basic handling of visa-related forms and information
+REST API
+Clean and organized API endpoints built with FastAPI
 
 ## Technology Stack
 
-### Backend
-- **Framework**: FastAPI (Python)
-- **Database**: SQLAlchemy ORM with SQLite (development) / PostgreSQL (production)
-- **Authentication**: JWT with bcrypt password hashing
-- **Server**: Uvicorn
+**Backend**
+FastAPI (Python)
+SQLAlchemy (ORM)
+SQLite (development) / PostgreSQL (production)
+JWT Authentication + bcrypt
+Uvicorn server
 
 ### Frontend
-- **Framework**: React (in development)
-- **HTTP Client**: Axios
-- **UI Framework**: Material-UI or Tailwind CSS (TBD)
+- Framework: React (in development)
+- HTTP Client: Axios
+- UI Framework: Material-UI or Tailwind CSS (TBD)
 
 ## Project Structure
 
-```
+Project Structure
 visainfochatbot/
 ├── backend/
 │   ├── app/
-│   │   ├── __init__.py
-│   │   ├── config.py              # Configuration settings
-│   │   ├── database.py            # Database connection
-│   │   ├── models/                # SQLAlchemy models
-│   │   │   ├── user.py
-│   │   │   ├── chat.py
-│   │   │   ├── document.py
-│   │   │   └── visa_info.py
-│   │   ├── routes/                # API endpoints
-│   │   │   ├── auth.py            # Authentication endpoints
-│   │   │   ├── chat.py            # Chat endpoints
-│   │   │   ├── visa_info.py       # Visa info endpoints
-│   │   │   └── documents.py       # Document upload endpoints
-│   │   ├── schemas/               # Pydantic schemas
-│   │   │   ├── user.py
-│   │   │   ├── chat.py
-│   │   │   ├── document.py
-│   │   │   └── visa_info.py
-│   │   └── utils/                 # Utility functions
-│   │       ├── auth.py            # Authentication helpers
-│   │       ├── visa_knowledge.py  # Visa information database
-│   │       └── document_processor.py
-│   ├── tests/                     # Test suite
-│   ├── main.py                    # FastAPI application entry
-│   ├── requirements.txt           # Python dependencies
-│   └── .env.example               # Environment variables example
-├── frontend/                      # React frontend (TBD)
+│   │   ├── config.py
+│   │   ├── database.py
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── schemas/
+│   │   └── utils/
+│   ├── tests/
+│   ├── main.py
+│   └── requirements.txt
+├── frontend/  # (in progress)
 └── README.md
-```
 
 ## Installation
 
-### Backend Setup
+**Backend Setup**
+Navigate to the backend folder:
+cd backend**
 
-1. **Clone/Navigate to the project**:
-   ```bash
-   cd backend
-   ```
+Create a virtual environment:
+python -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
 
-2. **Create virtual environment**:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+Install dependencies:
+pip install -r requirements.txt
 
-3. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+Set up environment variables:
+cp .env.example .env
 
-4. **Setup environment variables**:
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
+Run the application:
 
-5. **Run database migrations** (if using Alembic):
-   ```bash
-   alembic upgrade head
-   ```
+python main.py
 
-6. **Start the server**:
-   ```bash
-   python main.py
-   ```
-
-The API will be available at `http://localhost:8000`
+The API will run on:
+👉 http://localhost:8000
 
 ## API Documentation
 
@@ -131,57 +108,35 @@ Once the server is running, access the interactive API documentation:
 
 ## Environment Variables
 
-```env
-DATABASE_URL=sqlite:///./visa_chatbot.db
-SECRET_KEY=your-secret-key-here-change-in-production
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-UPLOADS_DIR=./uploads
-API_HOST=0.0.0.0
+DATABASE_URL=sqlite:///./visa_chatbot.db 
+SECRET_KEY=your-secret-key 
+ACCESS_TOKEN_EXPIRE_MINUTES=30 
+UPLOADS_DIR=./uploads 
 API_PORT=8000
-```
-
-## Development
-
-### Running Tests
-```bash
-pytest tests/
-```
-
-### Code Style
-- Follow PEP 8 guidelines
-- Use type hints
-- Write docstrings for all functions
 
 ## Future Enhancements
 
-- [ ] AI-powered chatbot with NLP
-- [ ] Advanced visa requirement matching
-- [ ] Integration with real visa application systems
-- [ ] Multi-language support
-- [ ] Mobile app
-- [ ] Real-time notifications
-- [ ] Email notifications
-- [ ] Admin dashboard
+This project is still evolving. Some things I plan to work on next:
+
+Add smarter AI-based responses (NLP)
+Improve visa matching based on user profile
+Support multiple languages
+Build a simple frontend interface
+Add notifications (email or in-app)
+Create an admin dashboard
 
 ## Contributing
+This started as a personal project, but contributions and ideas are welcome.
 
-1. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-2. Commit your changes (`git commit -m 'Add AmazingFeature'`)
-3. Push to the branch (`git push origin feature/AmazingFeature`)
-4. Open a Pull Request
+If you'd like to contribute:
+Fork the repository
+Create a new branch
+Make your changes
+Submit a pull request
+
+You can also open an issue if you find a bug or have suggestions.
 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Support
-
-For support, email support@visachatbot.com or open an issue on GitHub.
-
-## Roadmap
-
-- **Phase 1** (Current): Backend API development
-- **Phase 2**: Frontend React UI
-- **Phase 3**: AI/ML integration for intelligent responses
-- **Phase 4**: Production deployment and scaling
