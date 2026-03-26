@@ -135,9 +135,8 @@ Create a new branch
 Make your changes
 Submit a pull request
 
-You can also open an issue if you find a bug or have suggestions.
+You can also open an issue for bugs or suggestions.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
+This project is licensed under the MIT License.
